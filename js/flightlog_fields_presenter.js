@@ -50,6 +50,7 @@ function FlightLogFieldPresenter() {
         'rcCommand[1]': 'RC Command [pitch]',
         'rcCommand[2]': 'RC Command [yaw]',
         'rcCommand[3]': 'RC Command [throttle]',
+        'rcCommand[4]': 'RC Command [collective]',
 
         'gyroADC[all]': 'Gyros',
         'gyroADC[0]': 'Gyro [roll]',
@@ -499,9 +500,11 @@ function FlightLogFieldPresenter() {
             case 'rcCommand[0]':
             case 'rcCommand[1]':
             case 'rcCommand[2]':
-                return (value + 1500).toFixed(0) + " us";
+                return value.toFixed(0) + " us";    // was:  (value + 1500)
             case 'rcCommand[3]':
                 return value.toFixed(0) + " us";
+            case 'rcCommand[4]':
+                return value.toFixed(0) + " us";    // HF3D:  Show collective in range -500/+500
                 
             case 'motor[0]':
             case 'motor[1]':            
