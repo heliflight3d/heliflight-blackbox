@@ -291,7 +291,7 @@ var
             "SDIO",
             "CURRENT_SENSOR",
             "USB",
-            "SMARTAUDIO",
+            "GOVERNOR",
             "RTH",
             "ITERM_RELAX",
             "ACRO_TRAINER",
