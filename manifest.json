@@ -1,6 +1,6 @@
 {
-  "name": "Betaflight - Blackbox Explorer",
-  "description": "Interactive flight log viewer for Betaflight",
+  "name": "HeliFlight Blackbox",
+  "description": "Interactive flight log viewer for HeliFlight3D",
   "version": "3.6.0",
   "manifest_version": 2,
   "default_locale": "en",
