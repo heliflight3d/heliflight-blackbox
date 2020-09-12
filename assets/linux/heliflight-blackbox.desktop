@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Heliflight Blackbox
+Comment=Crossplatform blackbox analitics tool for HeliFlight3D flight control system
+Exec=/opt/heliflight/heliflight-blackbox/heliflight-blackbox
+Icon=/opt/heliflight/heliflight-blackbox/icon/bf_icon_128.png
+Terminal=false
+Type=Application
+MimeType=application/x-blackboxlog
