@@ -1,6 +1,6 @@
 # Heliflight 3D Blackbox Explorer
 
-This is a version of Blackbox Explorer that has been customized for analyzing blackbox logs created by Heliflight 3D when utlized on single-rotor collective pitch helicopters.
+This is a version of Blackbox Explorer that has been customized for analyzing blackbox logs created by Heliflight 3D.
 
 ### Installation for normal users (non-developers):
 
