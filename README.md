@@ -2,26 +2,37 @@
 
 A version of Blackbox Explorer that has been customized for Heliflight 3D blackbox logs.  Includes display of logging for collective pitch, and shows Collective Pitch instead of Throttle on the stick movements.  The throttle channel is still available to plot on the graph.
 
-### Installation and use as a Chrome app (during Heliflight 3D development):
+### Installation for normal users (non-developers):
 
-1. Clone the repo to any local directory or download it as zip.
-...   click on "Code", then "Clone or Download", and "Download as Zip".
-2. If downloaded as a zip, extract the zip file into a new directory.
-3. Start Google Chrome.
-4. Click the 3-dots on the far right of the URL bar.
-5. Select "More Tools"
-6. Select "Extensions"
-7. Check the Developer Mode checkbox.
-8. Click on load unpacked extension.
-9. Point it to the folder you extracted the zip to.
-10. In the chrome address bar, paste the following command:  chrome://apps
-11.  Click on the Betaflight Blackbox Explorer icon, and then use Blackbox Explorer as you normally would.
+Please see the "Actions" tab on this Github repo to download the latest build snapshot for your operating system:  [Click here to go to the Actions tab](https://github.com/heliflight3d/heliflight-configurator/actions)
+
+### Devloper installation and use as a Chrome app:
+
+1. Fork the heliflight-blackbox repo and use git to clone it to your local machine.
+2. Install node.js:  https://nodejs.org/en/download/
+... You do not need to install the optional npm tools for compling modules from C/C++.
+3. Install yarn: `npm install yarn -g`
+... Make sure you open a new command prompt for this (do not use one that was already open before you installed Node.js).
+4. Change to project folder and run `yarn install`
+... Optional:  Run `yarn start` to build & run the debug flavor.
+5. Start Google Chrome.
+6. Click the 3-dots on the far right of the URL bar.
+7. Select "More Tools"
+8. Select "Extensions"
+9. Check the Developer Mode checkbox.
+10. Click on load unpacked extension.
+11. Point it to the folder you extracted the zip to.
+12. In the chrome address bar, paste the following command:  chrome://apps
+13.  Click on the Betaflight Blackbox Explorer icon, and then use Blackbox Explorer as you normally would.
 
 To change code in Blackbox explorer, just edit the javascript/html files or download/pull the new version from Github.
 Go into Chrome's Extension page and click the circular "refresh" icon next to the Betaflight extension.
 Re-run Blackbox explorer from the chrome://apps page.
 
 
+
+
+# OLD Betaflight Info....  Useful tidbits, but needs to all be updated eventually:
 
 [![Build Status](https://travis-ci.com/betaflight/blackbox-log-viewer.svg?branch=master)](https://travis-ci.com/betaflight/blackbox-log-viewer) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=betaflight_blackbox-log-viewer&metric=alert_status)](https://sonarcloud.io/dashboard?id=betaflight_blackbox-log-viewer) [![Build Status](https://dev.azure.com/Betaflight/Betaflight%20Nightlies/_apis/build/status/betaflight.blackbox-log-viewer?branchName=master)](https://dev.azure.com/Betaflight/Betaflight%20Nightlies/_build/latest?definitionId=2&branchName=master)
 
