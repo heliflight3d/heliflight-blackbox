@@ -50,6 +50,7 @@ function FlightLogFieldPresenter() {
         'rcCommand[1]': 'RC Command [pitch]',
         'rcCommand[2]': 'RC Command [yaw]',
         'rcCommand[3]': 'RC Command [throttle]',
+        'rcCommand[4]': 'RC Command [collective]',
 
         'gyroADC[all]': 'Gyros',
         'gyroADC[0]': 'Gyro [roll]',
@@ -68,7 +69,12 @@ function FlightLogFieldPresenter() {
         'motor[7]': 'Motor [8]',
 
         'servo[all]': 'Servos',
-        'servo[5]': 'Servo Tail',
+        'servo[0]': 'Servo Elev',
+        'servo[1]': 'Servo L_Ail',
+        'servo[2]': 'Servo R_Ail',
+        'servo[3]': 'Servo Tail',
+        
+        'headspeed': 'Headspeed',
 
         'vbatLatest': 'Battery volt.',
         'amperageLatest': 'Amperage',
@@ -413,6 +419,13 @@ function FlightLogFieldPresenter() {
                             'debug[2]':'Altitude Adjustment',
                             'debug[3]':'Rescue State',
             },
+            'GOVERNOR' :   {
+                            'debug[all]':'GOVERNOR', 
+                            'debug[0]':'Governor Setpoint',
+                            'debug[1]':'Headspeed',
+                            'debug[2]':'Governor PidSum',
+                            'debug[3]':'Tail RPM',
+            },
         };
     
     function presentFlags(flags, flagNames) {
@@ -499,9 +512,11 @@ function FlightLogFieldPresenter() {
             case 'rcCommand[0]':
             case 'rcCommand[1]':
             case 'rcCommand[2]':
-                return (value + 1500).toFixed(0) + " us";
+                return value.toFixed(0) + " us";    // was:  (value + 1500)
             case 'rcCommand[3]':
                 return value.toFixed(0) + " us";
+            case 'rcCommand[4]':
+                return value.toFixed(0) + " us";    // HF3D:  Show collective in range -500/+500
                 
             case 'motor[0]':
             case 'motor[1]':            
@@ -584,6 +599,15 @@ function FlightLogFieldPresenter() {
 
             case 'rssi':
                 return (value / 1024 * 100).toFixed(2) + "%";
+
+            case 'headspeed':
+                return (value).toFixed(0) + " rpm";
+               
+            case 'servo[0]':
+            case 'servo[1]':
+            case 'servo[2]':
+            case 'servo[3]':
+                return (value).toFixed(0) + " uS";
 
             case 'debug[0]':
             case 'debug[1]':
@@ -749,6 +773,18 @@ function FlightLogFieldPresenter() {
                             return value.toFixed(0);
                         }
                         break;
+                case 'GOVERNOR':
+                    switch (fieldName) {
+                        case 'debug[0]': // governorSetpoint
+                            return value.toFixed(0) + 'rpm';
+                        case 'debug[1]': // headspeed
+                            return value.toFixed(0) + 'rpm';
+                        case 'debug[2]': // govPidSum*1000
+                            return (value / 10).toFixed(1) + '%';
+                        case 'debug[3]': // Tail motor RPM
+                            return value.toFixed(0) + 'rpm';
+                    }
+                    break;
             }
             return value.toFixed(0);
 		}
