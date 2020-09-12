@@ -268,9 +268,9 @@ GraphConfig.load = function(config) {
                 };
             } else if (fieldName.match(/^servo\[/)) {
                 return {
-                    offset: -1500,
+                    offset: -500,
                     power: 1.0,
-                    inputRange: 500,
+                    inputRange: 2020.0,
                     outputRange: 1.0
                 };
             } else if (fieldName.match(/^accSmooth\[/)) {
@@ -308,6 +308,13 @@ GraphConfig.load = function(config) {
                     offset: -1500,
                     power: 1.0,
                     inputRange: 500, 
+                    outputRange: 1.0
+                };
+            } else if (fieldName == "rcCommand[4]") { // Collective
+                return {
+                    offset: 0,
+                    power: 1.0, /* Scale linearly */
+                    inputRange: 500 * gyroScaleMargin, 
                     outputRange: 1.0
                 };
             } else if (fieldName.match(/^rcCommand\[/)) {
@@ -554,7 +561,7 @@ GraphConfig.load = function(config) {
         const EXAMPLE_GRAPHS = [];
         
         if (!flightLog.isFieldDisabled().MOTORS) {
-            EXAMPLE_GRAPHS.push({label: "Motors",fields: ["motor[all]", "servo[5]"]});
+            EXAMPLE_GRAPHS.push({label: "Motors",fields: ["motor[all]", "headspeed"]},{label: "Servos",fields: ["servo[all]"]});
         }
         if (!flightLog.isFieldDisabled().GYRO) {
             EXAMPLE_GRAPHS.push({label: "Gyros",fields: ["gyroADC[all]"]});
@@ -570,9 +577,9 @@ GraphConfig.load = function(config) {
         }
         if (!(flightLog.isFieldDisabled().GYRO || flightLog.isFieldDisabled().PID)) {
             EXAMPLE_GRAPHS.push({label: "PID Error",fields: ["axisError[all]"]},
-                                {label: "Gyro + PID roll",fields: ["axisP[0]", "axisI[0]", "axisD[0]", "axisF[0]", "gyroADC[0]"]},
-                                {label: "Gyro + PID pitch",fields: ["axisP[1]", "axisI[1]", "axisD[1]", "axisF[1]", "gyroADC[1]"]},
-                                {label: "Gyro + PID yaw",fields: ["axisP[2]", "axisI[2]", "axisD[2]", "axisF[2]", "gyroADC[2]"]});
+                                {label: "Gyro + PID roll",fields: ["axisP[0]", "axisI[0]", "axisD[0]", "axisF[0]", "gyroADC[0]", "axisSum[0]", "rcCommands[0]"]},
+                                {label: "Gyro + PID pitch",fields: ["axisP[1]", "axisI[1]", "axisD[1]", "axisF[1]", "gyroADC[1]", "axisSum[1]", "rcCommands[1]"]},
+                                {label: "Gyro + PID yaw",fields: ["axisP[2]", "axisI[2]", "axisD[2]", "axisF[2]", "gyroADC[2]", "axisSum[2]", "rcCommands[2]"]});
         }
         if (!flightLog.isFieldDisabled().ACC) {
             EXAMPLE_GRAPHS.push({label: "Accelerometers",fields: ["accSmooth[all]"]});

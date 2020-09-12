@@ -174,7 +174,8 @@ function FlightLogGrapher(flightLog, graphConfig, canvas, stickCanvas, craftCanv
             accFields:[],
 
             servoFields:[],
-
+            headspeed:-1,
+            
             vbatField:-1,
             numCells:-1,
             baroField:-1,
@@ -201,7 +202,7 @@ function FlightLogGrapher(flightLog, graphConfig, canvas, stickCanvas, craftCanv
             } else if ((matches = fieldName.match(/^rcCommand\[(\d+)]$/))) {
                 var rcCommandIndex = matches[1];
 
-                if (rcCommandIndex >= 0 && rcCommandIndex < 4) {
+                if (rcCommandIndex >= 0 && rcCommandIndex < 5) {
                     idents.rcCommandFields[rcCommandIndex] = fieldIndex;
                 }
             } else if ((matches = fieldName.match(/^axisPID\[(\d+)]$/))) {
@@ -243,6 +244,9 @@ function FlightLogGrapher(flightLog, graphConfig, canvas, stickCanvas, craftCanv
                     break;
                     case "heading":
                         idents.heading = fieldIndex;
+                    break;
+                    case "headspeed":
+                        idents.headspeed = fieldIndex;
                     break;
                     default:
                         idents.miscFields.push(fieldIndex);

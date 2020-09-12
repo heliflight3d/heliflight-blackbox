@@ -767,7 +767,7 @@ var FlightLogParser = function(logData) {
                 if(matches!=null) {
 
                     // Detecting Betaflight requires looking at the revision string
-                    if (matches[1] === "Betaflight") {
+                    if (matches[1] === "Heliflight") {
                         that.sysConfig.firmwareType = FIRMWARE_TYPE_BETAFLIGHT;
                         $('html').removeClass('isBaseF');
                         $('html').removeClass('isCF');
