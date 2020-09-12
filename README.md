@@ -1,10 +1,11 @@
 # Heliflight 3D Blackbox Explorer
 
-A version of Blackbox Explorer that has been customized for Heliflight 3D blackbox logs.  Includes display of logging for collective pitch, and shows Collective Pitch instead of Throttle on the stick movements.  The throttle channel is still available to plot on the graph.
+This is a version of Blackbox Explorer that has been customized for analyzing blackbox logs created by Heliflight 3D when utlized on single-rotor collective pitch helicopters.
 
 ### Installation for normal users (non-developers):
 
-Please see the "Actions" tab on this Github repo to download the latest build snapshot for your operating system:  [Click here to go to the Actions tab](https://github.com/heliflight3d/heliflight-configurator/actions)
+Please see the "Actions" tab on this Github repo to download the latest build snapshot for your operating system:  
+* [Click here to go to the Actions tab](https://github.com/heliflight3d/heliflight-blackbox/actions/new)
 
 ### Devloper installation and use as a Chrome app:
 
