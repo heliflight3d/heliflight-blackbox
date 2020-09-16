@@ -25,6 +25,8 @@ var
         FLIGHT_MODE: 30,
         TWITCH_TEST: 40, // Feature for latency testing
         
+        GOVSTATE: 50, // HF3D main motor governor state
+        
         CUSTOM : 250, // Virtual Event Code - Never part of Log File.
         CUSTOM_BLANK : 251, // Virtual Event Code - Never part of Log File. - No line shown
         LOG_END: 255
@@ -435,6 +437,21 @@ var
         "RUNAWAY_TAKEOFF",
         "GPS_RESCUE",
         "SERIAL_IO",
+    ]),
+    
+    FLIGHT_LOG_GOVSTATES = makeReadOnly([
+        "THROTTLE_OFF",
+        "PASSTHROUGH_SPOOLING_UP",
+        "PASSTHROUGH_ACTIVE",
+        "PASSTHROUGH_LOST_THROTTLE",
+        "PASSTHROUGH_LOST_HEADSPEED",
+        "GOVERNOR_SPOOLING_UP",
+        "GOVERNOR_ACTIVE",
+        "GOVERNOR_LOST_THROTTLE",
+        "GOVERNOR_LOST_HEADSPEED",
+        "AUTOROTATION_CLASSIC",
+        "AUTOROTATION_ASSIST",
+        "AUTOROTATION_BAILOUT",
     ]),
 
     RATES_TYPE = makeReadOnly([
