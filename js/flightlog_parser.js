@@ -762,12 +762,12 @@ var FlightLogParser = function(logData) {
 
                 //TODO Unify this somehow...
 
-                // Extract the firmware revision in case of Betaflight/Raceflight/Cleanfligh 2.x/Other
+                // Extract the firmware revision in case of Heliflight/Betaflight/Raceflight/Cleanfligh 2.x/Other
                 var matches = fieldValue.match(/(.*flight).* (\d+)\.(\d+)(\.(\d+))*/i);
                 if(matches!=null) {
 
-                    // Detecting Betaflight requires looking at the revision string
-                    if (matches[1] === "Betaflight") {
+                    // Detecting Heliflight requires looking at the revision string
+                    if (matches[1].toLowerCase() === "heliflight") {
                         that.sysConfig.firmwareType = FIRMWARE_TYPE_BETAFLIGHT;
                         $('html').removeClass('isBaseF');
                         $('html').removeClass('isCF');
