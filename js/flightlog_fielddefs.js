@@ -441,6 +441,7 @@ var
 
     FLIGHT_LOG_GOVSTATES = makeReadOnly([
         "THROTTLE_OFF",
+        "THROTTLE_IDLE",
         "PASSTHROUGH_SPOOLING_UP",
         "PASSTHROUGH_ACTIVE",
         "PASSTHROUGH_LOST_THROTTLE",
